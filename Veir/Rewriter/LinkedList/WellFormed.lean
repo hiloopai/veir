@@ -536,7 +536,7 @@ theorem BlockOperandPtr.BlockOperandPtr_removeFromCurrent_BlockPtr_getFirstUse!
 theorem BlockPtr.DefUse.getElem?_zero_erase_array_eq
     (useInBounds : BlockOperandPtr.InBounds use ctx)
     (hWF : BlockPtr.DefUse block ctx array missingUses) (useInArray: use ∈ array)
-    {i} (iInBounds : i < (array.erase use).size) :
+    {i} (_iInBounds : i < (array.erase use).size) :
     (array.erase use)[0]? = block.getFirstUse! (use.removeFromCurrent ctx useInBounds ctxInBounds) := by
   grind [Array.getElem_of_mem, BlockPtr.DefUse, BlockPtr.DefUse.erase_getElem_array_eq_eraseIdx,
     BlockPtr.DefUse_array_injective, Array.getElem?_eraseIdx_of_ge]
