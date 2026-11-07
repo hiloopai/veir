@@ -138,7 +138,7 @@ theorem OperationPtr.next!_WfRewriter_createOp :
     | none =>
       if operation = newOp then none else (operation.get! ctx.raw).next := by
   simp only [WfRewriter.createOp]
-  grind (gen := 20) (splits := 20) [cases InsertPoint]
+  grind (gen := 20) (branches := 20) [cases InsertPoint]
 
 @[grind =>, simp_getset]
 theorem OperationPtr.parent!_WfRewriter_createOp :
